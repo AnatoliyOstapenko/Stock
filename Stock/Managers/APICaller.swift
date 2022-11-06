@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APICaller {
+final class APICaller {
     
     static let shared = APICaller()
     private init() {}
