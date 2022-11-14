@@ -20,6 +20,9 @@
 		BCFB0B342916EEB8004D5299 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B332916EEB8004D5299 /* PersistenceManager.swift */; };
 		BCFB0B362916F30A004D5299 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B352916F30A004D5299 /* Constants.swift */; };
 		BCFB0B392916F9F4004D5299 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B382916F9F4004D5299 /* CustomErrors.swift */; };
+		BCFB0B3B29182484004D5299 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B3A29182484004D5299 /* UIView+Ext.swift */; };
+		BCFB0B3E2918492E004D5299 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B3D2918492E004D5299 /* SearchResultsCell.swift */; };
+		BCFB0B6129218760004D5299 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B6029218760004D5299 /* Password.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		BCFB0B332916EEB8004D5299 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		BCFB0B352916F30A004D5299 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCFB0B382916F9F4004D5299 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
+		BCFB0B3A29182484004D5299 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		BCFB0B3D2918492E004D5299 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
+		BCFB0B6029218760004D5299 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,8 @@
 			children = (
 				BCFB0B302916EE3A004D5299 /* Managers */,
 				BCFB0B252916EA8C004D5299 /* Controllers */,
+				BCFB0B3F29184943004D5299 /* Views */,
+				BCFB0B3C29182488004D5299 /* Extensions */,
 				BCFB0B372916F95B004D5299 /* Utilities */,
 				BCFB0B242916EA64004D5299 /* Support */,
 				BCFB0B1E2916EA1E004D5299 /* Info.plist */,
@@ -116,8 +124,25 @@
 			children = (
 				BCFB0B352916F30A004D5299 /* Constants.swift */,
 				BCFB0B382916F9F4004D5299 /* CustomErrors.swift */,
+				BCFB0B6029218760004D5299 /* Password.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BCFB0B3C29182488004D5299 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB0B3A29182484004D5299 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BCFB0B3F29184943004D5299 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB0B3D2918492E004D5299 /* SearchResultsCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,10 +219,13 @@
 				BCFB0B272916EC52004D5299 /* WatchListVC.swift in Sources */,
 				BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */,
 				BCFB0B2F2916EE30004D5299 /* APICaller.swift in Sources */,
+				BCFB0B3E2918492E004D5299 /* SearchResultsCell.swift in Sources */,
 				BCFB0B2B2916EC8F004D5299 /* SearchResultsVC.swift in Sources */,
 				BCFB0B362916F30A004D5299 /* Constants.swift in Sources */,
 				BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */,
+				BCFB0B6129218760004D5299 /* Password.swift in Sources */,
 				BCFB0B342916EEB8004D5299 /* PersistenceManager.swift in Sources */,
+				BCFB0B3B29182484004D5299 /* UIView+Ext.swift in Sources */,
 				BCFB0B322916EE57004D5299 /* HapticsManager.swift in Sources */,
 				BCFB0B392916F9F4004D5299 /* CustomErrors.swift in Sources */,
 				BCFB0B292916EC6C004D5299 /* TopStoriesNewsVC.swift in Sources */,
