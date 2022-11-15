@@ -19,7 +19,6 @@ final class APICaller {
             completion(.failure(.urlSearchIsNil))
             return
         }
-        
     }
         
     // MARK: - Private
@@ -37,7 +36,7 @@ final class APICaller {
         queryItems.append(.init(name: "token", value: Password.key)) // Add token
         urlString += "?" + queryItems.map {"\($0.name)=\($0.value ?? "")"}.joined(separator: "&")
         
-        print("\n\(urlString)\n")
+        print(urlString)
         return URL(string: urlString)
     }
     
