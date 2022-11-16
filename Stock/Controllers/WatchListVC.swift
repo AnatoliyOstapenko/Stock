@@ -52,15 +52,15 @@ extension WatchListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty, let resultVC = searchController.searchResultsController as? SearchResultsVC else { return }
-        
+        //let concatenation = query.compactMap {String($0)}.filter{$0 != " "}.joined()
         timer?.invalidate() // reset timer
         // Cut douwn of requests to the external API
-        timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { _ in
             APICaller.shared.search(query: query) { data in
                 switch data {
                 case .success(let results):
                     DispatchQueue.main.async { resultVC.update(results.results) }
-                case .failure(let error): print(error)
+                case .failure(let error): print("Error: \(error.rawValue)")
                 }
             }
         })
