@@ -16,6 +16,11 @@ class SearchResultsCell: UITableViewCell {
         
     }
     
+    public func updateCellUI(results: Results) {
+        textLabel?.text = results.description
+        detailTextLabel?.text = results.symbol
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -9,6 +9,10 @@ import UIKit
 
 class WatchListVC: UIViewController {
     
+    // MARK: - Private proporties
+    
+    private var timer: Timer?
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -48,14 +52,25 @@ extension WatchListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty, let resultVC = searchController.searchResultsController as? SearchResultsVC else { return }
-        resultVC.update(["Google"])
+        
+        timer?.invalidate() // reset timer
+        // Cut douwn of requests to the external API
+        timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+            APICaller.shared.search(query: query) { data in
+                switch data {
+                case .success(let results):
+                    DispatchQueue.main.async { resultVC.update(results.results) }
+                case .failure(let error): print(error)
+                }
+            }
+        })
     }
 }
 
 extension WatchListVC: SearchResultsVCDelegate {
-    func didSelected(_ companyName: String) {
+    func didSelected(_ companyName: Results) {
         // Present stock details for given selection
-        print(companyName)
+        print(companyName.description)
     }
     
     

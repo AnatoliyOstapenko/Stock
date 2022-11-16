@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
 		BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B102916EA1C004D5299 /* AppDelegate.swift */; };
 		BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B122916EA1C004D5299 /* SceneDelegate.swift */; };
 		BCFB0B1A2916EA1E004D5299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB0B192916EA1E004D5299 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
 		BCFB0B0D2916EA1C004D5299 /* Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB0B102916EA1C004D5299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCFB0B122916EA1C004D5299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCA49A9C2924F83E00FDCF56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BCFB0B042916EA1C004D5299 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFB0B302916EE3A004D5299 /* Managers */,
+				BCA49A9C2924F83E00FDCF56 /* Models */,
 				BCFB0B252916EA8C004D5299 /* Controllers */,
 				BCFB0B3F29184943004D5299 /* Views */,
 				BCFB0B3C29182488004D5299 /* Extensions */,
@@ -218,6 +229,7 @@
 				BCFB0B2D2916ECA5004D5299 /* StockDetailsVC.swift in Sources */,
 				BCFB0B272916EC52004D5299 /* WatchListVC.swift in Sources */,
 				BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */,
+				BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */,
 				BCFB0B2F2916EE30004D5299 /* APICaller.swift in Sources */,
 				BCFB0B3E2918492E004D5299 /* SearchResultsCell.swift in Sources */,
 				BCFB0B2B2916EC8F004D5299 /* SearchResultsVC.swift in Sources */,

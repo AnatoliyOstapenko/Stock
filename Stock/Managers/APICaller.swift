@@ -14,15 +14,13 @@ final class APICaller {
     
     // MARK: - Public
     
-    public func search(query: String, completion: @escaping(Result<[String], CustomErrors>) -> Void) {
-        guard let url = url(for: .search, queryParams: ["q": query]) else {
-            completion(.failure(.urlSearchIsNil))
-            return
-        }
+    public func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void) {
+        request(url: url(for: .search, queryParams: ["q":query]), expecting: SearchResponseModel.self, completion: completion)
     }
         
     // MARK: - Private
     
+    private var counter = 0
     private enum Endpoint: String { case search }
         
     private func url(for endpoint: Endpoint, queryParams: [String : String] = [:]) -> URL? {
@@ -32,11 +30,8 @@ final class APICaller {
         queryParams.forEach { name, value in
             queryItems.append(.init(name: name, value: value))
         }
-        
         queryItems.append(.init(name: "token", value: Password.key)) // Add token
         urlString += "?" + queryItems.map {"\($0.name)=\($0.value ?? "")"}.joined(separator: "&")
-        
-        print(urlString)
         return URL(string: urlString)
     }
     
@@ -52,6 +47,8 @@ final class APICaller {
             }
             do {
                 let result = try JSONDecoder().decode(expecting, from: data)
+                self.counter += 1
+                print("the number of requests to the external API is \(self.counter)")
                 completion(.success(result))
                 
             } catch { completion(.failure(.decodeFail))}

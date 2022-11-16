@@ -8,13 +8,13 @@
 import UIKit
 
 protocol SearchResultsVCDelegate: AnyObject {
-    func didSelected(_ companyName: String)
+    func didSelected(_ companyName: Results)
 }
 
 class SearchResultsVC: UIViewController {
     
     weak var delegate: SearchResultsVCDelegate?
-    var results: [String] = []
+    var results: [Results] = []
     
     private let tableView: UITableView  = {
         let tableView = UITableView()
@@ -37,7 +37,7 @@ class SearchResultsVC: UIViewController {
     
     // MARK: - Public methods
     
-    public func update(_ results: [String]) {
+    public func update(_ results: [Results]) {
         self.results = results
         tableView.reloadData()
     }
@@ -56,22 +56,26 @@ class SearchResultsVC: UIViewController {
     }
 }
 
-extension SearchResultsVC: UITableViewDataSource, UITableViewDelegate {
+// MARK: - TableView DataSource
+
+extension SearchResultsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsCell.reuseID, for: indexPath) as! SearchResultsCell
-        cell.textLabel?.text = "APPL"
-        cell.detailTextLabel?.text = "Apple Inc."
+        cell.updateCellUI(results: results[indexPath.row])
         return cell
     }
-    
+}
+
+// MARK: - TableView Delegate
+
+extension SearchResultsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didSelected("APPL: \(indexPath.row)")
+        delegate?.didSelected(results[indexPath.row])
     }
-    
 }
 
