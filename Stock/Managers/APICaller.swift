@@ -7,14 +7,19 @@
 
 import Foundation
 
-final class APICaller {
+protocol APICallerProtocol {
+    func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void)
+}
+
+final class APICaller: APICallerProtocol {
     
-    static let shared = APICaller()
-    private init() {}
+//    static let shared = APICaller()
+//    private init() {}
     
     // MARK: - Public
     
-    public func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void) {
+    func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void) {
+        // disable to type not url format query request by user
         guard let safeQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             completion(.failure(.urlQueryIsNotAllowed))
             return

@@ -10,11 +10,11 @@ import Foundation
 struct SearchResponseModel: Codable {
     let count: Int
     let results: [Results]
+    
     enum CodingKeys: String, CodingKey {
         case count
         case results = "result"
     }
-
 }
 
 struct Results: Codable {

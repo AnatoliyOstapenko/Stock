@@ -13,12 +13,13 @@ class SearchResultsCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
     }
     
-    public func updateCellUI(results: Results) {
+    public func updateCellUI(results: Results, number: Int) {
         textLabel?.text = results.description
         detailTextLabel?.text = results.symbol
+        imageView?.image = UIImage(systemName: "\(number + 1).circle")
+        imageView?.tintColor = .label
     }
     
     required init?(coder: NSCoder) {

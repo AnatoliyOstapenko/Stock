@@ -15,6 +15,8 @@ class SearchResultsVC: UIViewController {
     
     weak var delegate: SearchResultsVCDelegate?
     var results: [Results] = []
+    var coordinator: CoordinatorProtocol?
+    var presenter: SearchResultsViewPresenterProtocol?
     
     private let tableView: UITableView  = {
         let tableView = UITableView()
@@ -29,6 +31,7 @@ class SearchResultsVC: UIViewController {
         super.viewDidLoad()
         updateUI()
         setUpTablewView()
+        presenter?.getResults()
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,7 +70,7 @@ extension SearchResultsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsCell.reuseID, for: indexPath) as! SearchResultsCell
-        cell.updateCellUI(results: results[indexPath.row])
+        cell.updateCellUI(results: results[indexPath.row], number: indexPath.row)
         return cell
     }
 }
@@ -80,4 +83,5 @@ extension SearchResultsVC: UITableViewDelegate {
         delegate?.didSelected(results[indexPath.row])
     }
 }
+
 

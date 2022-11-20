@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let apiKey = ""
+    static let stocks = "Stocks"
     static let baseURL = "https://finnhub.io/api/v1/"
 }
 

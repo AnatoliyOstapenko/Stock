@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
+		BCA49ABE292A6C3E00FDCF56 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */; };
+		BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */; };
+		BCA49AC4292A8F5400FDCF56 /* SearchResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC3292A8F5400FDCF56 /* SearchResultsPresenter.swift */; };
 		BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B102916EA1C004D5299 /* AppDelegate.swift */; };
 		BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B122916EA1C004D5299 /* SceneDelegate.swift */; };
 		BCFB0B1A2916EA1E004D5299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB0B192916EA1E004D5299 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
+		BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
+		BCA49AC3292A8F5400FDCF56 /* SearchResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsPresenter.swift; sourceTree = "<group>"; };
 		BCFB0B0D2916EA1C004D5299 /* Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB0B102916EA1C004D5299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCFB0B122916EA1C004D5299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BCA49ABF292A6CC000FDCF56 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BCA49AC2292A780300FDCF56 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */,
+				BCA49AC3292A8F5400FDCF56 /* SearchResultsPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		BCFB0B042916EA1C004D5299 = {
 			isa = PBXGroup;
 			children = (
@@ -86,10 +109,12 @@
 		BCFB0B0F2916EA1C004D5299 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
+				BCA49ABF292A6CC000FDCF56 /* Coordinator */,
 				BCFB0B302916EE3A004D5299 /* Managers */,
 				BCA49A9C2924F83E00FDCF56 /* Models */,
 				BCFB0B252916EA8C004D5299 /* Controllers */,
 				BCFB0B3F29184943004D5299 /* Views */,
+				BCA49AC2292A780300FDCF56 /* Presenters */,
 				BCFB0B3C29182488004D5299 /* Extensions */,
 				BCFB0B372916F95B004D5299 /* Utilities */,
 				BCFB0B242916EA64004D5299 /* Support */,
@@ -226,15 +251,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA49ABE292A6C3E00FDCF56 /* Coordinator.swift in Sources */,
 				BCFB0B2D2916ECA5004D5299 /* StockDetailsVC.swift in Sources */,
 				BCFB0B272916EC52004D5299 /* WatchListVC.swift in Sources */,
 				BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */,
+				BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */,
 				BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */,
 				BCFB0B2F2916EE30004D5299 /* APICaller.swift in Sources */,
 				BCFB0B3E2918492E004D5299 /* SearchResultsCell.swift in Sources */,
 				BCFB0B2B2916EC8F004D5299 /* SearchResultsVC.swift in Sources */,
 				BCFB0B362916F30A004D5299 /* Constants.swift in Sources */,
 				BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */,
+				BCA49AC4292A8F5400FDCF56 /* SearchResultsPresenter.swift in Sources */,
 				BCFB0B6129218760004D5299 /* Password.swift in Sources */,
 				BCFB0B342916EEB8004D5299 /* PersistenceManager.swift in Sources */,
 				BCFB0B3B29182484004D5299 /* UIView+Ext.swift in Sources */,
