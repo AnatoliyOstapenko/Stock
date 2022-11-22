@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FloatingPanel
 
 class WatchListVC: UIViewController {
     
@@ -22,15 +23,28 @@ class WatchListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setUpTitleView()
         coordinator?.setUpSearchResultsVC(viewController: self)
+        coordinator?.setUpFloatingPanel(viewController: self)
+//        setUpFloatingPanel()
+        setUpTitleView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
     }
     
     // MARK: - Private methods
+    
+    // FloatingPanel framework:
+//    private func setUpFloatingPanel() {
+//        let panel = FloatingPanelController(delegate: self)
+//        let vc = NewsVC(type: .topStories)
+//        panel.surfaceView.backgroundColor = .secondarySystemBackground
+//        panel.set(contentViewController: vc)
+//        panel.track(scrollView: vc.tableView)
+//        panel.addPanel(toParent: self)
+//    }
     
     private func setUpTitleView() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: navigationController?.navigationBar.height ?? 100))
@@ -43,9 +57,7 @@ class WatchListVC: UIViewController {
 }
 
 extension WatchListVC: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {       
-        // guard let resultVC = searchController.searchResultsController as? SearchResultsVC else { return }
+    func updateSearchResults(for searchController: UISearchController) {
         timer?.invalidate() // reset timer
         // Cut douwn of requests to the external API
         timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { _ in
@@ -56,10 +68,16 @@ extension WatchListVC: UISearchResultsUpdating {
 
 extension WatchListVC: SearchResultsVCDelegate {
     func didSelected(_ companyName: Results) {
-        // Present stock details for given selection
         navigationItem.searchController?.searchBar.resignFirstResponder() // hide keyboard when you come back
-        self.coordinator?.setStockDetailsVC(companyName: companyName, root: self)  
+        self.coordinator?.setStockDetailsVC(companyName: companyName, viewController: self)
     }
 }
 
 extension WatchListVC: WatchListViewProtocol {}
+
+extension WatchListVC: FloatingPanelControllerDelegate {
+    func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
+        navigationItem.titleView?.isHidden = fpc.state == .full
+        
+    }
+}
