@@ -9,22 +9,24 @@ import Foundation
 import UIKit
 import FloatingPanel
 
-protocol CoordinatorProtocol {
-    var navController: UINavigationController { get set }
+protocol CoordinatorProtocol: AnyObject {
+    var childCoordinators: [CoordinatorProtocol] { get set }
+    var navController:  UINavigationController { get set }
+    init(navController: UINavigationController)
     func start()
+}
+
+protocol WatchListCoordinatorProtocol: CoordinatorProtocol {
     func setUpSearchResultsVC(viewController: UIViewController)
-    
+    func setStockDetailsVC(companyName: Results, viewController: UIViewController)
     func setUpFloatingPanel(viewController: UIViewController)
 }
 
-protocol StockDetailsCoordinatorProtocol {
-    var navController: UINavigationController { get set }
-    func setStockDetailsVC(companyName: Results, viewController: UIViewController)
-}
-
-class Coordinator: CoordinatorProtocol {
+class WatchListCoordinator: WatchListCoordinatorProtocol {
+    var childCoordinators: [CoordinatorProtocol] = []
     var navController: UINavigationController
-    init(navController: UINavigationController) { self.navController = navController }
+    
+    required init(navController: UINavigationController) { self.navController = navController }
     
     func start() {
         let view = WatchListVC()
@@ -47,7 +49,13 @@ class Coordinator: CoordinatorProtocol {
         }
     }
     
-    
+    func setStockDetailsVC(companyName: Results, viewController: UIViewController) {
+        let view = StockDetailsVC()
+        view.coordinator = self
+        view.title = companyName.description
+        let navController = UINavigationController(rootViewController: view)
+        if let vc = viewController as? WatchListVC { vc.present(navController, animated: true) }
+    }
     
     func setUpFloatingPanel(viewController: UIViewController) {
         if viewController is WatchListVC {
@@ -60,19 +68,4 @@ class Coordinator: CoordinatorProtocol {
         }
         
     }
-}
-
-class StockDetailsVC: StockDetailsCoordinatorProtocol {
-    var navController: UINavigationController
-    init(navController: UINavigationController) { self.navController = navController }
-    
-    func setStockDetailsVC(companyName: Results, viewController: UIViewController) {
-        let view = StockDetailsVC()
-        view.coordinator = self
-        view.title = companyName.description
-        let navController = UINavigationController(rootViewController: view)
-        if let vc = viewController as? WatchListVC { vc.present(navController, animated: true) }
-    }
-    
-    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class StockDetailsVC: UIViewController {
     
-    var coordinator: CoordinatorProtocol?
+    var coordinator: WatchListCoordinatorProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()

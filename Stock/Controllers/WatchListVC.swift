@@ -11,7 +11,7 @@ import FloatingPanel
 class WatchListVC: UIViewController {
     
     // MARK: - Public proporties
-    var coordinator: CoordinatorProtocol?
+    var coordinator: WatchListCoordinatorProtocol?
     var presenter: WatchListPresenterProtocol?
     
     // MARK: - Private proporties

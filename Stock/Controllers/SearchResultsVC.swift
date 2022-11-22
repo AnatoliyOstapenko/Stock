@@ -15,7 +15,7 @@ class SearchResultsVC: UIViewController {
     
     weak var delegate: SearchResultsVCDelegate?
     var results: [Results] = []
-    var coordinator: CoordinatorProtocol?
+    var coordinator: WatchListCoordinatorProtocol?
     
     private let tableView: UITableView  = {
         let tableView = UITableView()

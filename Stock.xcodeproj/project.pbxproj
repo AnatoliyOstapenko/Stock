@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		31F1782D7B2E8B1E41B948AB /* Pods_Stock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7920927ABE8DF150D4A57B /* Pods_Stock.framework */; };
 		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
-		BCA49ABE292A6C3E00FDCF56 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */; };
+		BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */; };
 		BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */; };
 		BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B102916EA1C004D5299 /* AppDelegate.swift */; };
 		BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB0B122916EA1C004D5299 /* SceneDelegate.swift */; };
@@ -33,7 +33,7 @@
 		28B4CB1DC977820FF5FE0E0B /* Pods-Stock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.release.xcconfig"; path = "Target Support Files/Pods-Stock/Pods-Stock.release.xcconfig"; sourceTree = "<group>"; };
 		71044E1E3D8BD0202F008D73 /* Pods-Stock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.debug.xcconfig"; path = "Target Support Files/Pods-Stock/Pods-Stock.debug.xcconfig"; sourceTree = "<group>"; };
 		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
-		BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCoordinator.swift; sourceTree = "<group>"; };
 		BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
 		BCFB0B0D2916EA1C004D5299 /* Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB0B102916EA1C004D5299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,12 +76,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BCA49ABF292A6CC000FDCF56 /* Coordinator */ = {
+		BCA49ABF292A6CC000FDCF56 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				BCA49ABD292A6C3E00FDCF56 /* Coordinator.swift */,
+				BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		BCA49AC2292A780300FDCF56 /* Presenters */ = {
@@ -113,7 +113,7 @@
 		BCFB0B0F2916EA1C004D5299 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
-				BCA49ABF292A6CC000FDCF56 /* Coordinator */,
+				BCA49ABF292A6CC000FDCF56 /* Coordinators */,
 				BCFB0B302916EE3A004D5299 /* Managers */,
 				BCA49A9C2924F83E00FDCF56 /* Models */,
 				BCFB0B252916EA8C004D5299 /* Controllers */,
@@ -316,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCA49ABE292A6C3E00FDCF56 /* Coordinator.swift in Sources */,
+				BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */,
 				BCFB0B2D2916ECA5004D5299 /* StockDetailsVC.swift in Sources */,
 				BCFB0B272916EC52004D5299 /* WatchListVC.swift in Sources */,
 				BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */,
