@@ -9,16 +9,17 @@ import Foundation
 
 protocol APICallerProtocol {
     func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void)
+    func story(type: NewsType, completion: @escaping(Result<[NewsModel], CustomErrors>) -> Void)
 }
 
 final class APICaller: APICallerProtocol {
     
-//    static let shared = APICaller()
+    static let shared = APICaller() // FIXME: - Delete this after debbuging
 //    private init() {}
     
     // MARK: - Public
     
-    func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void) {
+    public func search(query: String, completion: @escaping(Result<SearchResponseModel, CustomErrors>) -> Void) {
         // disable to type not url format query request by user
         guard let safeQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             completion(.failure(.urlQueryIsNotAllowed))
@@ -26,10 +27,26 @@ final class APICaller: APICallerProtocol {
         }
         request(url: url(for: .search, queryParams: ["q": safeQuery]), expecting: SearchResponseModel.self, completion: completion)
     }
+    
+    public func story(type: NewsType, completion: @escaping(Result<[NewsModel], CustomErrors>) -> Void) {
+        let formater = DateFormatter()
+        let today = Date()
+        let yesterday = today.addingTimeInterval(-(Constants.interval * 1)) //intrerval * days
+        
+        switch type {
+        case .topStories:
+            request(url: url(for: .news, queryParams: ["category":"general"]), expecting: [NewsModel].self, completion: completion)
+        case .company(let symbol):
+            request(url: url(for: .company, queryParams: ["symbol":symbol,
+                                                          "from":formater.newsFormated.string(from: yesterday),
+                                                          "to":formater.newsFormated.string(from: today)]),
+                    expecting: [NewsModel].self, completion: completion)
+        }
+    }
         
     // MARK: - Private
     
-    private enum Endpoint: String { case search }
+    private enum Endpoint: String { case search, news, company = "company-news" }
         
     private func url(for endpoint: Endpoint, queryParams: [String : String] = [:]) -> URL? {
         var urlString = Constants.baseURL + endpoint.rawValue

@@ -10,6 +10,7 @@ import Foundation
 enum Constants {
     static let stocks = "Stocks"
     static let baseURL = "https://finnhub.io/api/v1/"
+    static let interval: TimeInterval = 60 * 60 * 24 //sec * min * h
 }
 
-// https://finnhub.io/api/v1/search?q=apple&token=cdokun2ad3i3u5gohvu0cdokun2ad3i3u5gohvug
+

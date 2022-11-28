@@ -31,7 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    private func debug() {}
+    private func debug() {
+        APICaller.shared.story(type: .company(symbol: "aapl")) { result in
+            switch result {
+            case .success(let success):
+                success.forEach{print($0.headline)}
+            case .failure(let failure):
+                print("Debug error: \(failure.rawValue)")
+            }
+        }
+    }
 
 
 }

@@ -16,3 +16,10 @@ extension UIView {
     var top: CGFloat { frame.origin.y }
     var bottom: CGFloat { top + height }
 }
+
+// MARK: Add all subbviews to vc by array
+extension UIView {
+    func addAllSubbviews(_ views: UIView...) {
+        views.forEach { addSubview($0) }
+    }
+}

@@ -25,7 +25,6 @@ class WatchListVC: UIViewController {
         view.backgroundColor = .systemBackground
         coordinator?.setUpSearchResultsVC(viewController: self)
         coordinator?.setUpFloatingPanel(viewController: self)
-//        setUpFloatingPanel()
         setUpTitleView()
     }
     
@@ -35,16 +34,6 @@ class WatchListVC: UIViewController {
     }
     
     // MARK: - Private methods
-    
-    // FloatingPanel framework:
-//    private func setUpFloatingPanel() {
-//        let panel = FloatingPanelController(delegate: self)
-//        let vc = NewsVC(type: .topStories)
-//        panel.surfaceView.backgroundColor = .secondarySystemBackground
-//        panel.set(contentViewController: vc)
-//        panel.track(scrollView: vc.tableView)
-//        panel.addPanel(toParent: self)
-//    }
     
     private func setUpTitleView() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: navigationController?.navigationBar.height ?? 100))

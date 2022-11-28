@@ -49,6 +49,8 @@ class NewsVC: UIViewController {
     
     private func setUpTableView() {
         view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.register(NewsHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: NewsHeaderView.self))
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -72,17 +74,22 @@ extension NewsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: NewsHeaderView.self)) as? NewsHeaderView else {
+            print("Debug error: Issue with adding NewsHeaderView into tableView")
+            return nil
+        }
+        header.updateNewsHeader(with: .init(title: self.type.title, shouldShowAddButton: false))
+        return header
+    }
 }
 
 // MARK: - UITableViewDelegate
 
 extension NewsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        nil
+        return NewsHeaderView.preferredHeight
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

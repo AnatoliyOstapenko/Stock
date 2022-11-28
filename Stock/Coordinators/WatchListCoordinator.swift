@@ -66,6 +66,5 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
             panel.track(scrollView: vc.tableView)
             panel.addPanel(toParent: viewController as! WatchListVC)
         }
-        
     }
 }
