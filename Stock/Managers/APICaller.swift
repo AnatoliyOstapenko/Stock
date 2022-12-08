@@ -25,21 +25,21 @@ final class APICaller: APICallerProtocol {
             completion(.failure(.urlQueryIsNotAllowed))
             return
         }
-        request(url: url(for: .search, queryParams: ["q": safeQuery]), expecting: SearchResponseModel.self, completion: completion)
+        request(url: getURL(for: .search, queryParams: ["q": safeQuery]), expecting: SearchResponseModel.self, completion: completion)
     }
     
     public func story(type: NewsType, completion: @escaping(Result<[NewsModel], CustomErrors>) -> Void) {
-        let formater = DateFormatter()
+//        let formater = DateFormatter()
         let today = Date()
         let yesterday = today.addingTimeInterval(-(Constants.interval * 1)) //intrerval * days
         
         switch type {
         case .topStories:
-            request(url: url(for: .news, queryParams: ["category":"general"]), expecting: [NewsModel].self, completion: completion)
+            request(url: getURL(for: .news, queryParams: ["category":"general"]), expecting: [NewsModel].self, completion: completion)
         case .company(let symbol):
-            request(url: url(for: .company, queryParams: ["symbol":symbol,
-                                                          "from":formater.newsFormated.string(from: yesterday),
-                                                          "to":formater.newsFormated.string(from: today)]),
+            request(url: getURL(for: .company, queryParams: ["symbol":symbol,
+                                                          "from":yesterday.dateToString,
+                                                          "to":today.dateToString]),
                     expecting: [NewsModel].self, completion: completion)
         }
     }
@@ -48,7 +48,7 @@ final class APICaller: APICallerProtocol {
     
     private enum Endpoint: String { case search, news, company = "company-news" }
         
-    private func url(for endpoint: Endpoint, queryParams: [String : String] = [:]) -> URL? {
+    private func getURL(for endpoint: Endpoint, queryParams: [String : String] = [:]) -> URL? {
         var urlString = Constants.baseURL + endpoint.rawValue
         var queryItems = [URLQueryItem]()
         

@@ -11,6 +11,7 @@ class NewsCellLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +24,10 @@ class NewsCellLabel: UILabel {
     }
     
     private func configure() {
-        
+        textColor = .secondaryLabel
+        numberOfLines = 0
+        adjustsFontSizeToFitWidth = true
+        minimumScaleFactor = 0.7
     }
 
 }

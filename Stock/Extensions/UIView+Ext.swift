@@ -18,6 +18,7 @@ extension UIView {
 }
 
 // MARK: Add all subbviews to vc by array
+
 extension UIView {
     func addAllSubbviews(_ views: UIView...) {
         views.forEach { addSubview($0) }

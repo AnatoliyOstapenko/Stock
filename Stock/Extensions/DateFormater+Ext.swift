@@ -6,7 +6,7 @@
 //
 
 import Foundation
-// old 
+// deprecated
 extension DateFormatter {
     var newsFormated: DateFormatter {
         let formater = DateFormatter()
@@ -21,6 +21,16 @@ extension Date {
         let formater = DateFormatter()
         formater.dateFormat = "yyyy-MM-dd"
         let string = formater.string(from: self)
+        return string
+    }
+}
+
+extension Double {
+    var timeIntervalToString: String {
+        let date = Date(timeIntervalSince1970: self)
+        let formater = DateFormatter()
+        formater.dateStyle = .long
+        let string = formater.string(from: date)
         return string
     }
 }

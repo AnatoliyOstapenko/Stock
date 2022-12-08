@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31F1782D7B2E8B1E41B948AB /* Pods_Stock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7920927ABE8DF150D4A57B /* Pods_Stock.framework */; };
+		BC198A78294255F30089B897 /* StoryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A77294255F30089B897 /* StoryImageView.swift */; };
 		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
 		BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */; };
 		BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		28B4CB1DC977820FF5FE0E0B /* Pods-Stock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.release.xcconfig"; path = "Target Support Files/Pods-Stock/Pods-Stock.release.xcconfig"; sourceTree = "<group>"; };
 		71044E1E3D8BD0202F008D73 /* Pods-Stock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.debug.xcconfig"; path = "Target Support Files/Pods-Stock/Pods-Stock.debug.xcconfig"; sourceTree = "<group>"; };
+		BC198A77294255F30089B897 /* StoryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryImageView.swift; sourceTree = "<group>"; };
 		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
 		BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCoordinator.swift; sourceTree = "<group>"; };
 		BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC198A792942561C0089B897 /* UIImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC198A77294255F30089B897 /* StoryImageView.swift */,
+			);
+			path = UIImageViews;
+			sourceTree = "<group>";
+		};
 		BCA49A9C2924F83E00FDCF56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 		BCFB0B3F29184943004D5299 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC198A792942561C0089B897 /* UIImageViews */,
 				BCA49B8C292E64A000FDCF56 /* Cells */,
 				BCA49B8F292E660B00FDCF56 /* Headers */,
 				BCAA3F92293141B400A71522 /* Labels */,
@@ -384,6 +395,7 @@
 				BCAA3F9629321E8F00A71522 /* NewsCellModel.swift in Sources */,
 				BCFB0B322916EE57004D5299 /* HapticsManager.swift in Sources */,
 				BCFB0B392916F9F4004D5299 /* CustomErrors.swift in Sources */,
+				BC198A78294255F30089B897 /* StoryImageView.swift in Sources */,
 				BCFB0B292916EC6C004D5299 /* NewsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

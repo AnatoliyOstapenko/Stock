@@ -11,18 +11,12 @@ struct NewsCellModel {
     let source: String
     let headline: String
     let dateString: String
-    let imageURL: String?
+    let imageURL: URL?
     
     init(model: NewsModel) {
         self.source = model.source
         self.headline = model.headline
-        self.dateString = model.datetime.intToString
-        self.imageURL = model.image
-    }
-}
-
-private extension Int {
-    var intToString: String {
-        return String(self)
+        self.dateString = model.datetime.timeIntervalToString
+        self.imageURL = URL(string: model.url)
     }
 }
