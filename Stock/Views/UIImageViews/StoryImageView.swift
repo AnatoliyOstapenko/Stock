@@ -23,12 +23,13 @@ class StoryImageView: UIImageView {
         layer.cornerRadius = 6
         layer.masksToBounds = true
         contentMode = .scaleAspectFill
-        backgroundColor = .systemRed
         image = Constants.defaultImage
     }
     
-    func setImage(url: URL?) {
-        guard let url = url else { return }
+    func setImage(urlString: String?) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            image = Constants.defaultImage
+            return }
         
         DispatchQueue.global(qos: .userInteractive).async {
             let task = URLSession.shared.dataTask(with: url) { data, _, error in
@@ -40,6 +41,5 @@ class StoryImageView: UIImageView {
             task.resume()
         }
     }
-    
 
 }

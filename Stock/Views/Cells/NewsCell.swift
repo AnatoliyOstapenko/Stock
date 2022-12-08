@@ -24,9 +24,6 @@ class NewsCell: UITableViewCell {
     
     private func configure() {
         contentView.backgroundColor = .systemBackground
-        sourceLabel.backgroundColor = .systemYellow
-        headlineLabel.backgroundColor = .systemMint
-        dateLabel.backgroundColor = .systemBrown
         addAllSubbviews(sourceLabel, headlineLabel, dateLabel, storyImageView)
     }
     
@@ -74,9 +71,6 @@ class NewsCell: UITableViewCell {
         sourceLabel.text = viewModel.source
         headlineLabel.text = viewModel.headline
         dateLabel.text = viewModel.dateString
-        storyImageView.setImage(url: viewModel.imageURL)
-        
-    }
-    
-    
+        storyImageView.setImage(urlString: viewModel.imageURL)
+    }  
 }

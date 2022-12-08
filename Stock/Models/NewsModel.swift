@@ -12,7 +12,7 @@ struct NewsModel: Codable {
     let datetime: Double
     let headline: String
     let id: Int
-    let image: String
+    let image: String?
     let related: String
     let source: String
     let summary: String
