@@ -29,7 +29,6 @@ final class APICaller: APICallerProtocol {
     }
     
     public func story(type: NewsType, completion: @escaping(Result<[NewsModel], CustomErrors>) -> Void) {
-//        let formater = DateFormatter()
         let today = Date()
         let yesterday = today.addingTimeInterval(-(Constants.interval * 1)) //intrerval * days
         

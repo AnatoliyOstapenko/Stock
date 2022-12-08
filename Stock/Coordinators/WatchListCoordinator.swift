@@ -61,6 +61,9 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
         if viewController is WatchListVC {
             let panel = FloatingPanelController(delegate: viewController as? WatchListVC)
             let vc = NewsVC(type: .topStories)
+            let networkManager = APICaller()
+            let presenter = NewsVCPresenter(view: vc, networkManager: networkManager)
+            vc.presenter = presenter
             panel.surfaceView.backgroundColor = .secondarySystemBackground
             panel.set(contentViewController: vc)
             panel.track(scrollView: vc.tableView)

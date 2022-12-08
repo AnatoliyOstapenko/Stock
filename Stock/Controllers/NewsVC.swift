@@ -22,16 +22,8 @@ class NewsVC: UIViewController {
     
     let tableView = UITableView()
     private let type: NewsType
-    
-    var stories: [NewsModel] = [NewsModel(category: "category",
-                                          datetime: 1667428763,
-                                          headline: "headline is too long string with some blabla text",
-                                          id: 01,
-                                          image: "image",
-                                          related: "related",
-                                          source: "source",
-                                          summary: "summary",
-                                          url: "url")]
+    var presenter: NewsVCPresenterProtocol?
+    var stories: [NewsModel] = []
     
     init(type: NewsType) {
         self.type = type
@@ -47,7 +39,7 @@ class NewsVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpTableView()
-        fetchNews()
+        presenter?.fetchNews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,10 +60,6 @@ class NewsVC: UIViewController {
         // FIXME: - use this after to check what diference
 //        tableView.estimatedRowHeight = NewsCell.preferedHeight
 //        tableView.rowHeight = UITableView.automaticDimension
-    }
-    
-    private func fetchNews() {
-        
     }
     
     private func open(url: URL) {
@@ -121,4 +109,13 @@ extension NewsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension NewsVC: NewsVCViewProtocol {
+    func setNews(news: [NewsModel]) {
+        self.stories = news
+        self.tableView.reloadData()
+    }
+    
+    
 }
