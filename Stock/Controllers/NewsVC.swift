@@ -22,7 +22,10 @@ class NewsVC: UIViewController {
     
     let tableView = UITableView()
     private let type: NewsType
+    
     var presenter: NewsVCPresenterProtocol?
+    var coordinator: WatchListCoordinatorProtocol?
+    
     var stories: [NewsModel] = []
     
     init(type: NewsType) {
@@ -60,10 +63,6 @@ class NewsVC: UIViewController {
         // FIXME: - use this after to check what diference
 //        tableView.estimatedRowHeight = NewsCell.preferedHeight
 //        tableView.rowHeight = UITableView.automaticDimension
-    }
-    
-    private func open(url: URL) {
-        
     }
 }
 
@@ -108,6 +107,10 @@ extension NewsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // Open web news story
+        let story = stories[indexPath.row]
+        guard let url = URL(string: story.url) else { return }
+        coordinator?.setUpSafari(url: url, viewController: self)
     }
 }
 

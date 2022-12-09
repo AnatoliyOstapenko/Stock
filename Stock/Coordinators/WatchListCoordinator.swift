@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import FloatingPanel
+import SafariServices
 
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get set }
@@ -20,6 +21,7 @@ protocol WatchListCoordinatorProtocol: CoordinatorProtocol {
     func setUpSearchResultsVC(viewController: UIViewController)
     func setStockDetailsVC(companyName: Results, viewController: UIViewController)
     func setUpFloatingPanel(viewController: UIViewController)
+    func setUpSafari(url: URL, viewController: UIViewController)
 }
 
 class WatchListCoordinator: WatchListCoordinatorProtocol {
@@ -51,7 +53,7 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
     
     func setStockDetailsVC(companyName: Results, viewController: UIViewController) {
         let view = StockDetailsVC()
-        view.coordinator = self
+//        view.coordinator = self
         view.title = companyName.description
         let navController = UINavigationController(rootViewController: view)
         if let vc = viewController as? WatchListVC { vc.present(navController, animated: true) }
@@ -64,10 +66,24 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
             let networkManager = APICaller()
             let presenter = NewsVCPresenter(view: vc, networkManager: networkManager)
             vc.presenter = presenter
+            vc.coordinator = self // why I can't create another instance in setUpSafari() ???
+            
             panel.surfaceView.backgroundColor = .secondarySystemBackground
             panel.set(contentViewController: vc)
             panel.track(scrollView: vc.tableView)
             panel.addPanel(toParent: viewController as! WatchListVC)
+        }
+    }
+    
+   // MARK: - NewsVCCoordinator
+   // FIXME: - Devide coordinators next time
+    
+    func setUpSafari(url: URL, viewController: UIViewController) {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .label
+        
+        if viewController is NewsVC {
+            DispatchQueue.main.async { viewController.present(safariVC, animated: true) }
         }
     }
 }

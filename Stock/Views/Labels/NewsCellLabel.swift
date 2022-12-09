@@ -18,13 +18,13 @@ class NewsCellLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(ofSize: CGFloat, weight: UIFont.Weight) {
+    convenience init(ofSize: CGFloat, weight: UIFont.Weight, textColor: UIColor) {
         self.init(frame: .zero)
         font = .systemFont(ofSize: ofSize, weight: weight)
+        self.textColor = textColor
     }
     
     private func configure() {
-        textColor = .secondaryLabel
         numberOfLines = 0
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.7
