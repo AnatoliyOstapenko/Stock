@@ -24,12 +24,10 @@ class StockCustomButton: UIButton {
     }
     
     private func configure() {
-        layer.backgroundColor = UIColor.red.cgColor
+        layer.backgroundColor = UIColor.secondaryLabel.cgColor
         layer.cornerRadius = 10
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.white.cgColor
         titleLabel?.textAlignment = .center
-        titleLabel?.textColor = .white
+        titleLabel?.textColor = .systemBackground
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         titleLabel?.adjustsFontSizeToFitWidth = true
         titleLabel?.minimumScaleFactor = 0.7

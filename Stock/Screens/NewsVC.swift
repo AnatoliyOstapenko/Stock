@@ -113,7 +113,8 @@ extension NewsVC: UITableViewDelegate {
             coordinator?.setUpAlert(viewController: self, text: .urlIsNil)
             return
         }
-        coordinator?.setUpSafari(url: url, viewController: self)
+        coordinator?.setUpAlert(viewController: self, text: .urlIsNil)
+//        coordinator?.setUpSafari(url: url, viewController: self)
     }
 }
 

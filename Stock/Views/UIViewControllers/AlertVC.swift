@@ -10,7 +10,7 @@ import UIKit
 class AlertVC: UIViewController {
     
     private let alertViewContainer = UIView()
-    private let alertLabel = NewsCellLabel(ofSize: 20, weight: .semibold, textColor: .systemRed)
+    private let alertLabel = NewsCellLabel(ofSize: 14, weight: .black, textColor: .secondaryLabel)
     private let alertButton = StockCustomButton(text: "OK")
     
     
