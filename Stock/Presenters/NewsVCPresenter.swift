@@ -27,7 +27,7 @@ class NewsVCPresenter: NewsVCPresenterProtocol {
     }
     
     func fetchNews() {
-        networkManager.story(type: .company(symbol: "snap")) { [weak self] results in
+        networkManager.story(type: .topStories) { [weak self] results in
             guard let self = self else { return }
             switch results {
             case .success(let success):

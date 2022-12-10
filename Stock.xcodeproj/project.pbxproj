@@ -10,6 +10,8 @@
 		31F1782D7B2E8B1E41B948AB /* Pods_Stock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7920927ABE8DF150D4A57B /* Pods_Stock.framework */; };
 		BC198A78294255F30089B897 /* StoryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A77294255F30089B897 /* StoryImageView.swift */; };
 		BC198A7B29425C710089B897 /* NewsVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A7A29425C710089B897 /* NewsVCPresenter.swift */; };
+		BC198A9D2943CB9A0089B897 /* StockCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A9C2943CB9A0089B897 /* StockCustomButton.swift */; };
+		BC198AA02944DA130089B897 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A9F2944DA130089B897 /* AlertVC.swift */; };
 		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
 		BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */; };
 		BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */; };
@@ -43,6 +45,8 @@
 		71044E1E3D8BD0202F008D73 /* Pods-Stock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.debug.xcconfig"; path = "Target Support Files/Pods-Stock/Pods-Stock.debug.xcconfig"; sourceTree = "<group>"; };
 		BC198A77294255F30089B897 /* StoryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryImageView.swift; sourceTree = "<group>"; };
 		BC198A7A29425C710089B897 /* NewsVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVCPresenter.swift; sourceTree = "<group>"; };
+		BC198A9C2943CB9A0089B897 /* StockCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCustomButton.swift; sourceTree = "<group>"; };
+		BC198A9F2944DA130089B897 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
 		BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCoordinator.swift; sourceTree = "<group>"; };
 		BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
@@ -92,6 +96,22 @@
 				BC198A77294255F30089B897 /* StoryImageView.swift */,
 			);
 			path = UIImageViews;
+			sourceTree = "<group>";
+		};
+		BC198A9E2943CBA60089B897 /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				BC198A9C2943CB9A0089B897 /* StockCustomButton.swift */,
+			);
+			path = UIButtons;
+			sourceTree = "<group>";
+		};
+		BC198AA12944DA170089B897 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC198A9F2944DA130089B897 /* AlertVC.swift */,
+			);
+			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
 		BCA49A9C2924F83E00FDCF56 /* Models */ = {
@@ -168,11 +188,11 @@
 		BCFB0B0F2916EA1C004D5299 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
-				BCA49ABF292A6CC000FDCF56 /* Coordinators */,
 				BCFB0B302916EE3A004D5299 /* Managers */,
 				BCA49A9C2924F83E00FDCF56 /* Models */,
-				BCFB0B252916EA8C004D5299 /* Controllers */,
+				BCFB0B252916EA8C004D5299 /* Screens */,
 				BCFB0B3F29184943004D5299 /* Views */,
+				BCA49ABF292A6CC000FDCF56 /* Coordinators */,
 				BCA49AC2292A780300FDCF56 /* Presenters */,
 				BCFB0B3C29182488004D5299 /* Extensions */,
 				BCFB0B372916F95B004D5299 /* Utilities */,
@@ -193,7 +213,7 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		BCFB0B252916EA8C004D5299 /* Controllers */ = {
+		BCFB0B252916EA8C004D5299 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				BCFB0B262916EC52004D5299 /* WatchListVC.swift */,
@@ -201,7 +221,7 @@
 				BCFB0B2A2916EC8F004D5299 /* SearchResultsVC.swift */,
 				BCFB0B2C2916ECA5004D5299 /* StockDetailsVC.swift */,
 			);
-			path = Controllers;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		BCFB0B302916EE3A004D5299 /* Managers */ = {
@@ -240,6 +260,8 @@
 				BCA49B8C292E64A000FDCF56 /* Cells */,
 				BCA49B8F292E660B00FDCF56 /* Headers */,
 				BCAA3F92293141B400A71522 /* Labels */,
+				BC198A9E2943CBA60089B897 /* UIButtons */,
+				BC198AA12944DA170089B897 /* UIViewControllers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +400,7 @@
 				BC198A7B29425C710089B897 /* NewsVCPresenter.swift in Sources */,
 				BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */,
 				BCFB0B2D2916ECA5004D5299 /* StockDetailsVC.swift in Sources */,
+				BC198A9D2943CB9A0089B897 /* StockCustomButton.swift in Sources */,
 				BCFB0B272916EC52004D5299 /* WatchListVC.swift in Sources */,
 				BCFB0B112916EA1C004D5299 /* AppDelegate.swift in Sources */,
 				BCA49B8E292E64D700FDCF56 /* NewsHeaderView.swift in Sources */,
@@ -387,6 +410,7 @@
 				BCAA3F6F292FD37D00A71522 /* NewsModel.swift in Sources */,
 				BCAA3F91293141AD00A71522 /* NewsCellLabel.swift in Sources */,
 				BCFB0B3E2918492E004D5299 /* SearchResultsCell.swift in Sources */,
+				BC198AA02944DA130089B897 /* AlertVC.swift in Sources */,
 				BCAA3F8F29313B5400A71522 /* NewsCell.swift in Sources */,
 				BCFB0B2B2916EC8F004D5299 /* SearchResultsVC.swift in Sources */,
 				BCAA3F712930B92B00A71522 /* DateFormater+Ext.swift in Sources */,

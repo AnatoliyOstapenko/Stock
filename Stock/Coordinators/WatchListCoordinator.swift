@@ -22,6 +22,7 @@ protocol WatchListCoordinatorProtocol: CoordinatorProtocol {
     func setStockDetailsVC(companyName: Results, viewController: UIViewController)
     func setUpFloatingPanel(viewController: UIViewController)
     func setUpSafari(url: URL, viewController: UIViewController)
+    func setUpAlert(viewController: UIViewController, text: CustomErrors)
 }
 
 class WatchListCoordinator: WatchListCoordinatorProtocol {
@@ -84,6 +85,16 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
         
         if viewController is NewsVC {
             DispatchQueue.main.async { viewController.present(safariVC, animated: true) }
+        }
+    }
+    
+    func setUpAlert(viewController: UIViewController, text: CustomErrors) {
+        let alertVC = AlertVC(text: text)
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
+
+        if viewController is NewsVC {
+            DispatchQueue.main.async { viewController.present(alertVC, animated: true) }
         }
     }
 }

@@ -109,7 +109,10 @@ extension NewsVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         // Open web news story
         let story = stories[indexPath.row]
-        guard let url = URL(string: story.url) else { return }
+        guard let url = URL(string: story.url) else {
+            coordinator?.setUpAlert(viewController: self, text: .urlIsNil)
+            return
+        }
         coordinator?.setUpSafari(url: url, viewController: self)
     }
 }
