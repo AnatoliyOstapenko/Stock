@@ -13,6 +13,7 @@ class AlertVC: UIViewController {
     private let alertLabel = NewsCellLabel(ofSize: 14, weight: .black, textColor: .secondaryLabel)
     private let alertButton = StockCustomButton(text: "OK")
     
+    weak var coordinator: NewsCoordinatorProtocol?
     
     init(text: CustomErrors) {
         super.init(nibName: nil, bundle: nil)
@@ -23,10 +24,14 @@ class AlertVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
+    // MARK: - Private methods
     
     private func configure() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
@@ -36,5 +41,8 @@ class AlertVC: UIViewController {
         alertButton.addTarget(self, action: #selector(alertButtonPressed), for: .touchUpInside)
     }
     
-    @objc private func alertButtonPressed() { self.dismiss(animated: true)}
+    @objc private func alertButtonPressed() {
+        self.dismiss(animated: true)
+        self.coordinator?.stop() // remove child coordinator when Alert deinit
+    }
 }

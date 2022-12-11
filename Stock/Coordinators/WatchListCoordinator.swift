@@ -13,7 +13,6 @@ import SafariServices
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get set }
     var navController:  UINavigationController { get set }
-    init(navController: UINavigationController)
     func start()
 }
 
@@ -21,8 +20,9 @@ protocol WatchListCoordinatorProtocol: CoordinatorProtocol {
     func setUpSearchResultsVC(viewController: UIViewController)
     func setStockDetailsVC(companyName: Results, viewController: UIViewController)
     func setUpFloatingPanel(viewController: UIViewController)
+    func childDidFinish(_ child: CoordinatorProtocol?)
     func setUpSafari(url: URL, viewController: UIViewController)
-    func setUpAlert(viewController: UIViewController, text: CustomErrors)
+    func setUpAlert(viewController: UIViewController, message: CustomErrors)
 }
 
 class WatchListCoordinator: WatchListCoordinatorProtocol {
@@ -77,24 +77,33 @@ class WatchListCoordinator: WatchListCoordinatorProtocol {
     }
     
    // MARK: - NewsVCCoordinator
-   // FIXME: - Devide coordinators next time
     
     func setUpSafari(url: URL, viewController: UIViewController) {
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredControlTintColor = .label
+        let child = NewsCoordinator(navController: navController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+
+        child.setUpSafariNewsCoordinator(url: url, viewController: viewController)
+    }
+    
+    func setUpAlert(viewController: UIViewController, message: CustomErrors) {
+        let child = NewsCoordinator(navController: navController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
         
-        if viewController is NewsVC {
-            DispatchQueue.main.async { viewController.present(safariVC, animated: true) }
+        child.setUpAlertNewsCoordinator(viewController: viewController, message: message)
+    }
+    
+    // MARK: - Stop any child coordinators
+    
+    func childDidFinish(_ child: CoordinatorProtocol?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
         }
     }
     
-    func setUpAlert(viewController: UIViewController, text: CustomErrors) {
-        let alertVC = AlertVC(text: text)
-        alertVC.modalPresentationStyle = .overFullScreen
-        alertVC.modalTransitionStyle = .crossDissolve
 
-        if viewController is NewsVC {
-            DispatchQueue.main.async { viewController.present(alertVC, animated: true) }
-        }
-    }
 }

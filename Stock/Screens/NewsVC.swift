@@ -8,6 +8,7 @@
 import UIKit
 
 enum NewsType {
+    
     case topStories, company(symbol: String)
     
     var title: String {
@@ -24,7 +25,7 @@ class NewsVC: UIViewController {
     private let type: NewsType
     
     var presenter: NewsVCPresenterProtocol?
-    var coordinator: WatchListCoordinatorProtocol?
+    weak var coordinator: WatchListCoordinatorProtocol?
     
     var stories: [NewsModel] = []
     
@@ -38,12 +39,21 @@ class NewsVC: UIViewController {
     }
 
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpTableView()
         presenter?.fetchNews()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // delete child coordinator when user go to the other screen
+        coordinator?.childCoordinators = []
+    }
+    
+    // MARK: - Layout
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -110,11 +120,10 @@ extension NewsVC: UITableViewDelegate {
         // Open web news story
         let story = stories[indexPath.row]
         guard let url = URL(string: story.url) else {
-            coordinator?.setUpAlert(viewController: self, text: .urlIsNil)
+            coordinator?.setUpAlert(viewController: self, message: .urlIsNil)
             return
         }
-        coordinator?.setUpAlert(viewController: self, text: .urlIsNil)
-//        coordinator?.setUpSafari(url: url, viewController: self)
+       coordinator?.setUpSafari(url: url, viewController: self)
     }
 }
 

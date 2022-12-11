@@ -12,6 +12,7 @@
 		BC198A7B29425C710089B897 /* NewsVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A7A29425C710089B897 /* NewsVCPresenter.swift */; };
 		BC198A9D2943CB9A0089B897 /* StockCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A9C2943CB9A0089B897 /* StockCustomButton.swift */; };
 		BC198AA02944DA130089B897 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198A9F2944DA130089B897 /* AlertVC.swift */; };
+		BC198AA32944F5960089B897 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC198AA22944F5960089B897 /* NewsCoordinator.swift */; };
 		BCA49A9B2924F83A00FDCF56 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */; };
 		BCA49ABE292A6C3E00FDCF56 /* WatchListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */; };
 		BCA49AC1292A77FE00FDCF56 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */; };
@@ -47,6 +48,7 @@
 		BC198A7A29425C710089B897 /* NewsVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVCPresenter.swift; sourceTree = "<group>"; };
 		BC198A9C2943CB9A0089B897 /* StockCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCustomButton.swift; sourceTree = "<group>"; };
 		BC198A9F2944DA130089B897 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		BC198AA22944F5960089B897 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
 		BCA49A9A2924F83A00FDCF56 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
 		BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCoordinator.swift; sourceTree = "<group>"; };
 		BCA49AC0292A77FE00FDCF56 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				BCA49ABD292A6C3E00FDCF56 /* WatchListCoordinator.swift */,
+				BC198AA22944F5960089B897 /* NewsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				BCFB0B362916F30A004D5299 /* Constants.swift in Sources */,
 				BCFB0B132916EA1C004D5299 /* SceneDelegate.swift in Sources */,
 				BCFB0B6129218760004D5299 /* Password.swift in Sources */,
+				BC198AA32944F5960089B897 /* NewsCoordinator.swift in Sources */,
 				BCFB0B342916EEB8004D5299 /* PersistenceManager.swift in Sources */,
 				BCAA3F9429321DCB00A71522 /* NewsHeaderViewModel.swift in Sources */,
 				BCFB0B3B29182484004D5299 /* UIView+Ext.swift in Sources */,
